@@ -2,7 +2,7 @@
 //  CategoriesViewController.swift
 //  WorldNewsApp
 //
-//  Created by Дмитрий Волков on 21.10.2024.
+//  Created by Дмитрий Волков on 23.10.2024.
 //
 
 import UIKit
@@ -19,11 +19,8 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButtons()
     }
 
     //MARK: - Methods
-    
-    private func setupButtons() {
-    }
+
 }

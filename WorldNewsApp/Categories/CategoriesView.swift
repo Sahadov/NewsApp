@@ -2,7 +2,7 @@
 //  CategoriesView.swift
 //  WorldNewsApp
 //
-//  Created by Дмитрий Волков on 21.10.2024.
+//  Created by Дмитрий Волков on 23.10.2024.
 //
 
 import UIKit
@@ -83,6 +83,7 @@ extension CategoriesView: UICollectionViewDelegateFlowLayout {
         return CGSize(width: itemWidth, height: 72)
     }
 }
+
 
 
 
