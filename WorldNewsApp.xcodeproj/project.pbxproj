@@ -10,6 +10,7 @@
 		D13CF6242CC9BE6500DB659D /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13CF6232CC9BE6500DB659D /* CategoriesView.swift */; };
 		D13CF6262CC9BE7500DB659D /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13CF6252CC9BE7500DB659D /* CategoriesViewController.swift */; };
 		D13CF62A2CC9BEFD00DB659D /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13CF6292CC9BEFD00DB659D /* CategoryCell.swift */; };
+		D13CF62D2CC9C0F000DB659D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13CF62C2CC9C0F000DB659D /* Service.swift */; };
 		D16CD46F2CC6C85900868FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CD46E2CC6C85900868FA4 /* AppDelegate.swift */; };
 		D16CD4712CC6C85900868FA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CD4702CC6C85900868FA4 /* SceneDelegate.swift */; };
 		D16CD4732CC6C85900868FA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CD4722CC6C85900868FA4 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		D13CF6232CC9BE6500DB659D /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		D13CF6252CC9BE7500DB659D /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		D13CF6292CC9BEFD00DB659D /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		D13CF62C2CC9C0F000DB659D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		D16CD46B2CC6C85900868FA4 /* WorldNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16CD46E2CC6C85900868FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16CD4702CC6C85900868FA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		D13CF62B2CC9C09700DB659D /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				D13CF62C2CC9C0F000DB659D /* Service.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 		D16CD4622CC6C85900868FA4 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 				D16CD4772CC6C85C00868FA4 /* Assets.xcassets */,
 				D16CD4792CC6C85C00868FA4 /* LaunchScreen.storyboard */,
 				D16CD47C2CC6C85C00868FA4 /* Info.plist */,
+				D13CF62B2CC9C09700DB659D /* NetworkLayer */,
 				D13CF6282CC9BE9B00DB659D /* Categories */,
 			);
 			path = WorldNewsApp;
@@ -156,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D13CF6242CC9BE6500DB659D /* CategoriesView.swift in Sources */,
+				D13CF62D2CC9C0F000DB659D /* Service.swift in Sources */,
 				D16CD4732CC6C85900868FA4 /* ViewController.swift in Sources */,
 				D16CD46F2CC6C85900868FA4 /* AppDelegate.swift in Sources */,
 				D16CD4712CC6C85900868FA4 /* SceneDelegate.swift in Sources */,
