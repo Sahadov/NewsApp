@@ -31,6 +31,9 @@ class BookmarkViewController: UIViewController {
     override func viewDidLoad() {
             super.viewDidLoad()
             fetchArticles()
+        
+            navigationItem.backButtonTitle = ""
+        
             let data = storageManager.getFavouriteArticles(forKey: "favouriteArticles")
             print(data.count)
     }
@@ -66,5 +69,12 @@ extension BookmarkViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = collectionView.frame.width
         return CGSize(width: itemWidth, height: 96)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let article = articlesArray[indexPath.row]
+        let articleViewController = ArticleViewController(with: article)
+        articleViewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(articleViewController, animated: true)
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D112DF162CCAC62000013C77 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D112DF152CCAC62000013C77 /* ArticleView.swift */; };
+		D112DF192CCAC65600013C77 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D112DF182CCAC65600013C77 /* ArticleViewController.swift */; };
 		D13CF6242CC9BE6500DB659D /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13CF6232CC9BE6500DB659D /* CategoriesView.swift */; };
 		D13CF6262CC9BE7500DB659D /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13CF6252CC9BE7500DB659D /* CategoriesViewController.swift */; };
 		D13CF62A2CC9BEFD00DB659D /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13CF6292CC9BEFD00DB659D /* CategoryCell.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D112DF152CCAC62000013C77 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		D112DF182CCAC65600013C77 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		D13CF6232CC9BE6500DB659D /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		D13CF6252CC9BE7500DB659D /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		D13CF6292CC9BEFD00DB659D /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -57,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D112DF172CCAC63900013C77 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				D112DF152CCAC62000013C77 /* ArticleView.swift */,
+				D112DF182CCAC65600013C77 /* ArticleViewController.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
 		D13CF6282CC9BE9B00DB659D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +111,7 @@
 				D198D50D2CC9C3D800DB6BEC /* Home */,
 				D13CF62B2CC9C09700DB659D /* NetworkLayer */,
 				D198D5132CC9D0D300DB6BEC /* Bookmark */,
+				D112DF172CCAC63900013C77 /* Article */,
 				D198D50E2CC9C3FC00DB6BEC /* Supporting */,
 				D198D50F2CC9C67400DB6BEC /* TabBarController.swift */,
 				D198D5182CC9D97D00DB6BEC /* StorageManager.swift */,
@@ -214,7 +228,9 @@
 				D198D5102CC9C67400DB6BEC /* TabBarController.swift in Sources */,
 				D198D5152CC9D10300DB6BEC /* BookmarkViewController.swift in Sources */,
 				D16CD4712CC6C85900868FA4 /* SceneDelegate.swift in Sources */,
+				D112DF162CCAC62000013C77 /* ArticleView.swift in Sources */,
 				D198D50C2CC9C3B700DB6BEC /* HomeCell.swift in Sources */,
+				D112DF192CCAC65600013C77 /* ArticleViewController.swift in Sources */,
 				D13CF6262CC9BE7500DB659D /* CategoriesViewController.swift in Sources */,
 				D198D5082CC9C39A00DB6BEC /* HomeView.swift in Sources */,
 				D198D5122CC9D0C500DB6BEC /* BookmarkView.swift in Sources */,
