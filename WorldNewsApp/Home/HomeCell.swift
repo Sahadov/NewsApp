@@ -9,6 +9,8 @@ import UIKit
 
 class HomeCell: UICollectionViewCell {
     
+    var article: Article?
+    
     let categoryLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -82,10 +84,9 @@ class HomeCell: UICollectionViewCell {
     
     // Configure Method
     func configure(with article: Article) {
+        self.article = article
         titleLabel.text = article.title
         categoryLabel.text = article.author
-        //imageView.image = UIImage(named: aticle.image)
-        //categoryLabel.text = "art"
         imageView.image = UIImage(named: "article")
     }
 }

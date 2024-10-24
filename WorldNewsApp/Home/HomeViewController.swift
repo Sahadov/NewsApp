@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
 
     //MARK: - Properties
     let homeView = HomeView()
+    let storageManager = StorageManager()
     
     var articlesArray = [Article]() {
             didSet {
@@ -46,10 +47,16 @@ class HomeViewController: UIViewController {
     }
     
     @objc func likeButtonTapped(_ sender: UIButton) {
+
+        let index = sender.tag
+        let article = articlesArray[index]
+        
         if sender.currentImage == UIImage(systemName: "heart.fill") {
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
+            storageManager.remove(article, forKey: "favouriteArticles")
         } else {
             sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            storageManager.set(article, forKey: "favouriteArticles")
         }
     }
     
@@ -63,8 +70,17 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let article = articlesArray[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCell
-        cell.configure(with: articlesArray[indexPath.row])
+        cell.configure(with: article)
+        
+        // checking if the article is already in favourites
+        let articles = storageManager.getArticles(forKey: "favouriteArticles")
+        if articles.contains(where: { $0.url == article.url }) {
+            cell.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+        
+        cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped(_:)), for: .touchUpInside)
         return cell
     }

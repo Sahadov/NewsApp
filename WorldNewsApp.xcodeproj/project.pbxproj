@@ -22,6 +22,7 @@
 		D198D5122CC9D0C500DB6BEC /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5112CC9D0C500DB6BEC /* BookmarkView.swift */; };
 		D198D5152CC9D10300DB6BEC /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5142CC9D10300DB6BEC /* BookmarkViewController.swift */; };
 		D198D5172CC9D11300DB6BEC /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5162CC9D11300DB6BEC /* BookmarkCell.swift */; };
+		D198D5192CC9D97D00DB6BEC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5182CC9D97D00DB6BEC /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D198D5112CC9D0C500DB6BEC /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		D198D5142CC9D10300DB6BEC /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		D198D5162CC9D11300DB6BEC /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
+		D198D5182CC9D97D00DB6BEC /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				D198D5132CC9D0D300DB6BEC /* Bookmark */,
 				D198D50E2CC9C3FC00DB6BEC /* Supporting */,
 				D198D50F2CC9C67400DB6BEC /* TabBarController.swift */,
+				D198D5182CC9D97D00DB6BEC /* StorageManager.swift */,
 				D16CD47C2CC6C85C00868FA4 /* Info.plist */,
 				D16CD4772CC6C85C00868FA4 /* Assets.xcassets */,
 			);
@@ -207,6 +210,7 @@
 				D13CF6242CC9BE6500DB659D /* CategoriesView.swift in Sources */,
 				D13CF62D2CC9C0F000DB659D /* Service.swift in Sources */,
 				D16CD46F2CC6C85900868FA4 /* AppDelegate.swift in Sources */,
+				D198D5192CC9D97D00DB6BEC /* StorageManager.swift in Sources */,
 				D198D5102CC9C67400DB6BEC /* TabBarController.swift in Sources */,
 				D198D5152CC9D10300DB6BEC /* BookmarkViewController.swift in Sources */,
 				D16CD4712CC6C85900868FA4 /* SceneDelegate.swift in Sources */,

@@ -12,6 +12,7 @@ class BookmarkViewController: UIViewController {
 
     //MARK: - Properties
     let bookmarkView = BookmarkView()
+    let storageManager = StorageManager()
     
     var articlesArray = [Article]() {
             didSet {
@@ -30,6 +31,8 @@ class BookmarkViewController: UIViewController {
     override func viewDidLoad() {
             super.viewDidLoad()
             fetchArticles()
+            let data = storageManager.getArticles(forKey: "favouriteArticles")
+            print(data.count)
     }
 
     //MARK: - Methods
