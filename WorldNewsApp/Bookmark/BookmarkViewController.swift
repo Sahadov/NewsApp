@@ -31,7 +31,7 @@ class BookmarkViewController: UIViewController {
     override func viewDidLoad() {
             super.viewDidLoad()
             fetchArticles()
-            let data = storageManager.getArticles(forKey: "favouriteArticles")
+            let data = storageManager.getFavouriteArticles(forKey: "favouriteArticles")
             print(data.count)
     }
 

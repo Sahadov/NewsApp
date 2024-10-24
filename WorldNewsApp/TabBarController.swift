@@ -17,7 +17,7 @@ class TabBarController: UITabBarController {
 }
 
 private extension TabBarController {
-    
+
     func setupTabs() {
         let home = self.createNav(with: "Browse", image: UIImage(systemName: "house"), vc: HomeViewController())
         let categories = self.createNav(with: "Categories", image: UIImage(systemName: "square.grid.2x2"), vc: CategoriesViewController())

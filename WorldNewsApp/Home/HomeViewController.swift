@@ -75,7 +75,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.configure(with: article)
         
         // checking if the article is already in favourites
-        let articles = storageManager.getArticles(forKey: "favouriteArticles")
+        let articles = storageManager.getFavouriteArticles(forKey: "favouriteArticles")
         if articles.contains(where: { $0.url == article.url }) {
             cell.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
