@@ -13,10 +13,11 @@
 		D13CF62D2CC9C0F000DB659D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13CF62C2CC9C0F000DB659D /* Service.swift */; };
 		D16CD46F2CC6C85900868FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CD46E2CC6C85900868FA4 /* AppDelegate.swift */; };
 		D16CD4712CC6C85900868FA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CD4702CC6C85900868FA4 /* SceneDelegate.swift */; };
-		D16CD4732CC6C85900868FA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CD4722CC6C85900868FA4 /* ViewController.swift */; };
-		D16CD4762CC6C85900868FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16CD4742CC6C85900868FA4 /* Main.storyboard */; };
 		D16CD4782CC6C85C00868FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16CD4772CC6C85C00868FA4 /* Assets.xcassets */; };
 		D16CD47B2CC6C85C00868FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16CD4792CC6C85C00868FA4 /* LaunchScreen.storyboard */; };
+		D198D5082CC9C39A00DB6BEC /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5072CC9C39A00DB6BEC /* BookmarkView.swift */; };
+		D198D50A2CC9C3A600DB6BEC /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5092CC9C3A600DB6BEC /* BookmarkViewController.swift */; };
+		D198D50C2CC9C3B700DB6BEC /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D50B2CC9C3B700DB6BEC /* BookmarkCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +28,12 @@
 		D16CD46B2CC6C85900868FA4 /* WorldNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16CD46E2CC6C85900868FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16CD4702CC6C85900868FA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D16CD4722CC6C85900868FA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D16CD4752CC6C85900868FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D16CD4772CC6C85C00868FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D16CD47A2CC6C85C00868FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D16CD47C2CC6C85C00868FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D198D5072CC9C39A00DB6BEC /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		D198D5092CC9C3A600DB6BEC /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		D198D50B2CC9C3B700DB6BEC /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,17 +84,34 @@
 		D16CD46D2CC6C85900868FA4 /* WorldNewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				D16CD46E2CC6C85900868FA4 /* AppDelegate.swift */,
-				D16CD4702CC6C85900868FA4 /* SceneDelegate.swift */,
-				D16CD4722CC6C85900868FA4 /* ViewController.swift */,
-				D16CD4742CC6C85900868FA4 /* Main.storyboard */,
-				D16CD4772CC6C85C00868FA4 /* Assets.xcassets */,
-				D16CD4792CC6C85C00868FA4 /* LaunchScreen.storyboard */,
-				D16CD47C2CC6C85C00868FA4 /* Info.plist */,
-				D13CF62B2CC9C09700DB659D /* NetworkLayer */,
 				D13CF6282CC9BE9B00DB659D /* Categories */,
+				D198D50D2CC9C3D800DB6BEC /* Bookmark */,
+				D13CF62B2CC9C09700DB659D /* NetworkLayer */,
+				D198D50E2CC9C3FC00DB6BEC /* Supporting */,
+				D16CD47C2CC6C85C00868FA4 /* Info.plist */,
+				D16CD4772CC6C85C00868FA4 /* Assets.xcassets */,
 			);
 			path = WorldNewsApp;
+			sourceTree = "<group>";
+		};
+		D198D50D2CC9C3D800DB6BEC /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				D198D5092CC9C3A600DB6BEC /* BookmarkViewController.swift */,
+				D198D5072CC9C39A00DB6BEC /* BookmarkView.swift */,
+				D198D50B2CC9C3B700DB6BEC /* BookmarkCell.swift */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		D198D50E2CC9C3FC00DB6BEC /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				D16CD4792CC6C85C00868FA4 /* LaunchScreen.storyboard */,
+				D16CD46E2CC6C85900868FA4 /* AppDelegate.swift */,
+				D16CD4702CC6C85900868FA4 /* SceneDelegate.swift */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +174,6 @@
 			files = (
 				D16CD47B2CC6C85C00868FA4 /* LaunchScreen.storyboard in Resources */,
 				D16CD4782CC6C85C00868FA4 /* Assets.xcassets in Resources */,
-				D16CD4762CC6C85900868FA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,10 +186,12 @@
 			files = (
 				D13CF6242CC9BE6500DB659D /* CategoriesView.swift in Sources */,
 				D13CF62D2CC9C0F000DB659D /* Service.swift in Sources */,
-				D16CD4732CC6C85900868FA4 /* ViewController.swift in Sources */,
 				D16CD46F2CC6C85900868FA4 /* AppDelegate.swift in Sources */,
 				D16CD4712CC6C85900868FA4 /* SceneDelegate.swift in Sources */,
+				D198D50C2CC9C3B700DB6BEC /* BookmarkCell.swift in Sources */,
 				D13CF6262CC9BE7500DB659D /* CategoriesViewController.swift in Sources */,
+				D198D5082CC9C39A00DB6BEC /* BookmarkView.swift in Sources */,
+				D198D50A2CC9C3A600DB6BEC /* BookmarkViewController.swift in Sources */,
 				D13CF62A2CC9BEFD00DB659D /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,14 +199,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D16CD4742CC6C85900868FA4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D16CD4752CC6C85900868FA4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D16CD4792CC6C85C00868FA4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
