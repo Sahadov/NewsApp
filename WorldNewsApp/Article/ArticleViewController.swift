@@ -12,6 +12,7 @@ class ArticleViewController: UIViewController {
     //MARK: - Properties
     let articleView = ArticleView()
     var article: Article?
+    let storageManager = StorageManager()
     
     init(with article: Article?) {
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +34,10 @@ class ArticleViewController: UIViewController {
         guard let article = article else { return }
         articleView.configure(with: article)
         
+        if isArticleFavourite(with: article) { setFavouriteArticle() }
+        
+        articleView.bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
+        
         
         
     }
@@ -46,6 +51,29 @@ private extension ArticleViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backIndicatorImage = backButtonImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
+    }
+    func isArticleFavourite(with article: Article) -> Bool {
+        let articles = storageManager.getFavouriteArticles(forKey: "favouriteArticles")
+        if articles.contains(where: { $0.url == article.url }){ return true }
+        return false
+    }
+    func setFavouriteArticle(){
+        articleView.bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+    }
+    func setUnfavouriteArticle(){
+        articleView.bookmarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+    }
+    
+    @objc func bookmarkButtonTapped() {
+        print("pressed")
+//        guard let article = self.article else {return}
+//        if isArticleFavourite(with: article) {
+//            setUnfavouriteArticle()
+//            storageManager.remove(article, forKey: "favouriteArticles")
+//        } else {
+//            setFavouriteArticle()
+//            storageManager.set(article, forKey: "favouriteArticles")
+//        }
     }
 }
 
