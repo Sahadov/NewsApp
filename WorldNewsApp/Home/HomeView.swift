@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookmarkView: UIView {
+class HomeView: UIView {
 
     //MARK: - Properties
 
@@ -49,7 +49,7 @@ class BookmarkView: UIView {
 }
 
 
-private extension BookmarkView {
+private extension HomeView {
     func setCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 20
@@ -60,7 +60,7 @@ private extension BookmarkView {
     }
 }
 
-private extension BookmarkView {
+private extension HomeView {
     func setConstraints() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 70),
@@ -73,3 +73,4 @@ private extension BookmarkView {
         ])
     }
 }
+

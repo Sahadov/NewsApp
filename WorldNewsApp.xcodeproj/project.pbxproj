@@ -15,10 +15,13 @@
 		D16CD4712CC6C85900868FA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16CD4702CC6C85900868FA4 /* SceneDelegate.swift */; };
 		D16CD4782CC6C85C00868FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16CD4772CC6C85C00868FA4 /* Assets.xcassets */; };
 		D16CD47B2CC6C85C00868FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16CD4792CC6C85C00868FA4 /* LaunchScreen.storyboard */; };
-		D198D5082CC9C39A00DB6BEC /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5072CC9C39A00DB6BEC /* BookmarkView.swift */; };
-		D198D50A2CC9C3A600DB6BEC /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5092CC9C3A600DB6BEC /* BookmarkViewController.swift */; };
-		D198D50C2CC9C3B700DB6BEC /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D50B2CC9C3B700DB6BEC /* BookmarkCell.swift */; };
+		D198D5082CC9C39A00DB6BEC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5072CC9C39A00DB6BEC /* HomeView.swift */; };
+		D198D50A2CC9C3A600DB6BEC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5092CC9C3A600DB6BEC /* HomeViewController.swift */; };
+		D198D50C2CC9C3B700DB6BEC /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D50B2CC9C3B700DB6BEC /* HomeCell.swift */; };
 		D198D5102CC9C67400DB6BEC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D50F2CC9C67400DB6BEC /* TabBarController.swift */; };
+		D198D5122CC9D0C500DB6BEC /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5112CC9D0C500DB6BEC /* BookmarkView.swift */; };
+		D198D5152CC9D10300DB6BEC /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5142CC9D10300DB6BEC /* BookmarkViewController.swift */; };
+		D198D5172CC9D11300DB6BEC /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198D5162CC9D11300DB6BEC /* BookmarkCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +35,13 @@
 		D16CD4772CC6C85C00868FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D16CD47A2CC6C85C00868FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D16CD47C2CC6C85C00868FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D198D5072CC9C39A00DB6BEC /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
-		D198D5092CC9C3A600DB6BEC /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
-		D198D50B2CC9C3B700DB6BEC /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
+		D198D5072CC9C39A00DB6BEC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D198D5092CC9C3A600DB6BEC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D198D50B2CC9C3B700DB6BEC /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		D198D50F2CC9C67400DB6BEC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D198D5112CC9D0C500DB6BEC /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		D198D5142CC9D10300DB6BEC /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		D198D5162CC9D11300DB6BEC /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				D13CF6282CC9BE9B00DB659D /* Categories */,
-				D198D50D2CC9C3D800DB6BEC /* Bookmark */,
+				D198D50D2CC9C3D800DB6BEC /* Home */,
 				D13CF62B2CC9C09700DB659D /* NetworkLayer */,
+				D198D5132CC9D0D300DB6BEC /* Bookmark */,
 				D198D50E2CC9C3FC00DB6BEC /* Supporting */,
 				D198D50F2CC9C67400DB6BEC /* TabBarController.swift */,
 				D16CD47C2CC6C85C00868FA4 /* Info.plist */,
@@ -97,14 +104,14 @@
 			path = WorldNewsApp;
 			sourceTree = "<group>";
 		};
-		D198D50D2CC9C3D800DB6BEC /* Bookmark */ = {
+		D198D50D2CC9C3D800DB6BEC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D198D5092CC9C3A600DB6BEC /* BookmarkViewController.swift */,
-				D198D5072CC9C39A00DB6BEC /* BookmarkView.swift */,
-				D198D50B2CC9C3B700DB6BEC /* BookmarkCell.swift */,
+				D198D5092CC9C3A600DB6BEC /* HomeViewController.swift */,
+				D198D5072CC9C39A00DB6BEC /* HomeView.swift */,
+				D198D50B2CC9C3B700DB6BEC /* HomeCell.swift */,
 			);
-			path = Bookmark;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		D198D50E2CC9C3FC00DB6BEC /* Supporting */ = {
@@ -115,6 +122,16 @@
 				D16CD4702CC6C85900868FA4 /* SceneDelegate.swift */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		D198D5132CC9D0D300DB6BEC /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				D198D5112CC9D0C500DB6BEC /* BookmarkView.swift */,
+				D198D5142CC9D10300DB6BEC /* BookmarkViewController.swift */,
+				D198D5162CC9D11300DB6BEC /* BookmarkCell.swift */,
+			);
+			path = Bookmark;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,11 +208,14 @@
 				D13CF62D2CC9C0F000DB659D /* Service.swift in Sources */,
 				D16CD46F2CC6C85900868FA4 /* AppDelegate.swift in Sources */,
 				D198D5102CC9C67400DB6BEC /* TabBarController.swift in Sources */,
+				D198D5152CC9D10300DB6BEC /* BookmarkViewController.swift in Sources */,
 				D16CD4712CC6C85900868FA4 /* SceneDelegate.swift in Sources */,
-				D198D50C2CC9C3B700DB6BEC /* BookmarkCell.swift in Sources */,
+				D198D50C2CC9C3B700DB6BEC /* HomeCell.swift in Sources */,
 				D13CF6262CC9BE7500DB659D /* CategoriesViewController.swift in Sources */,
-				D198D5082CC9C39A00DB6BEC /* BookmarkView.swift in Sources */,
-				D198D50A2CC9C3A600DB6BEC /* BookmarkViewController.swift in Sources */,
+				D198D5082CC9C39A00DB6BEC /* HomeView.swift in Sources */,
+				D198D5122CC9D0C500DB6BEC /* BookmarkView.swift in Sources */,
+				D198D5172CC9D11300DB6BEC /* BookmarkCell.swift in Sources */,
+				D198D50A2CC9C3A600DB6BEC /* HomeViewController.swift in Sources */,
 				D13CF62A2CC9BEFD00DB659D /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

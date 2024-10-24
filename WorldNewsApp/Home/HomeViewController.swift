@@ -5,26 +5,25 @@
 //  Created by Дмитрий Волков on 23.10.2024.
 //
 
-
 import UIKit
 
-class BookmarkViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     //MARK: - Properties
-    let bookmarkView = BookmarkView()
+    let homeView = HomeView()
     
     var articlesArray = [Article]() {
             didSet {
-                bookmarkView.reloadCollectionView()
+                homeView.reloadCollectionView()
             }
         }
 
     //MARK: - Life cycle
     override func loadView() {
-            view = bookmarkView
-            bookmarkView.collectionView.dataSource = self
-            bookmarkView.collectionView.delegate = self
-            bookmarkView.collectionView.register(BookmarkCell.self, forCellWithReuseIdentifier: "cell")
+            view = homeView
+            homeView.collectionView.dataSource = self
+            homeView.collectionView.delegate = self
+            homeView.collectionView.register(HomeCell.self, forCellWithReuseIdentifier: "cell")
     }
         
     override func viewDidLoad() {
@@ -45,18 +44,28 @@ class BookmarkViewController: UIViewController {
             }
         }
     }
+    
+    @objc func likeButtonTapped(_ sender: UIButton) {
+        if sender.currentImage == UIImage(systemName: "heart.fill") {
+            sender.setImage(UIImage(systemName: "heart"), for: .normal)
+        } else {
+            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
+    }
+    
 }
 
 // MARK: - UICollectionView DataSource & Delegate
-extension BookmarkViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articlesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BookmarkCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCell
         cell.configure(with: articlesArray[indexPath.row])
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped(_:)), for: .touchUpInside)
         return cell
     }
     

@@ -7,14 +7,13 @@
 
 import UIKit
 
-class BookmarkCell: UICollectionViewCell {
+class HomeCell: UICollectionViewCell {
     
     let categoryLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.textAlignment = .center
         title.tintColor = .systemGray6
-        //title.text = "Art"
         title.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return title
     }()
@@ -22,7 +21,6 @@ class BookmarkCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        //title.numberOfLines = 0
         title.textAlignment = .center
         title.tintColor = .black
         title.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -32,11 +30,18 @@ class BookmarkCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        //image.image = UIImage(named: "article")
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         image.layer.cornerRadius = 15
         return image
+    }()
+    
+    let likeButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentMode = .scaleAspectFill
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        return button
     }()
     
     
@@ -54,7 +59,7 @@ class BookmarkCell: UICollectionViewCell {
     
     func setCell(){
         addSubview(titleLabel)
-        [categoryLabel, titleLabel, imageView].forEach { addSubview($0) }
+        [categoryLabel, titleLabel, imageView, likeButton].forEach { addSubview($0) }
     }
     
     func setConstraints(){
@@ -67,7 +72,11 @@ class BookmarkCell: UICollectionViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             categoryLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            categoryLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10)
+            categoryLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+            likeButton.topAnchor.constraint(equalTo: self.topAnchor),
+            likeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            likeButton.widthAnchor.constraint(equalToConstant: 20),
+            likeButton.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
@@ -80,3 +89,5 @@ class BookmarkCell: UICollectionViewCell {
         imageView.image = UIImage(named: "article")
     }
 }
+
+
