@@ -5,6 +5,23 @@
 //  Created by Дмитрий Волков on 23.10.2024.
 //
 
+struct Category: Codable {
+    enum Name: String, Codable {
+            case business
+            case entertainment
+            case general
+            case health
+            case science
+            case sports
+            case technology
+    }
+
+    let name: Name
+}
+
+
+
+
 import Foundation
 
 protocol StorageManagerProtocol {
@@ -46,6 +63,10 @@ final class StorageManager {
 // MARK: - StorageManagerProtocol
 extension StorageManager: StorageManagerProtocol {
     
+    func getFavouriteArticles(forKey key: Keys) -> [Article] {
+        return restore(forKey: key, as: [Article].self) ?? []
+    }
+    
     func addArticleToFavourites(_ article: Article, forKey key: Keys) {
         var articles = getFavouriteArticles(forKey: key)
         
@@ -56,79 +77,29 @@ extension StorageManager: StorageManagerProtocol {
         }
     }
 
-    func getFavouriteArticles(forKey key: Keys) -> [Article] {
-        return restore(forKey: key, as: [Article].self) ?? []
-    }
-
     func removeArticleFromFavourites(_ article: Article, forKey key: Keys) {
         var articles = getFavouriteArticles(forKey: key)
         articles.removeAll { $0.url == article.url }
         store(articles, forKey: key)
     }
+    
+    func getCategories(forKey key: Keys) -> [Category] {
+        return restore(forKey: key, as: [Category].self) ?? []
+    }
+    
+    func addGategory(_ category: Category, forKey key: Keys) {
+        var categories = getCategories(forKey: key)
+
+        if !categories.contains(where: { $0.name == category.name }) {
+            categories.append(category)
+            store(categories, forKey: key)
+            print("Category successfully added")
+        }
+    }
+    
+    func removeCategory(_ category: Category, forKey key: Keys) {
+        var categories = getCategories(forKey: key)
+        categories.removeAll { $0.name == category.name }
+        store(categories, forKey: key)
+    }
 }
-
-//protocol StorageManagerProtocol {
-//    func set(_ article: Article, forKey key: String)
-//    func getFavouriteArticles(forKey key: String) -> [Article]
-//    func remove(_ article: Article, forKey key: String)
-//}
-//
-//final class StorageManager {
-//    public enum Keys: String {
-//        case favouriteArticles
-//        case isLogedIn
-//        case categories
-//    }
-//
-//    private let userDefaults = UserDefaults.standard
-//
-//    private func store(_ object: Any?, key: String) {
-//        userDefaults.set(object, forKey: key)
-//    }
-//
-//    private func restore(forKey key: String) -> Any? {
-//        userDefaults.object(forKey: key)
-//    }
-//
-//}
-//
-//// MARK: - StorageManagerProtocol
-//extension StorageManager: StorageManagerProtocol {
-//
-//    func set(_ article: Article, forKey key: String) {
-//        var articles = getFavouriteArticles(forKey: key) // Retrieve existing articles
-//
-//        // Add the new article if it's not already present
-//        if !articles.contains(where: { $0.url == article.url }) { // Assuming `url` is unique
-//            articles.append(article)
-//
-//            if let encoded = try? JSONEncoder().encode(articles) {
-//                userDefaults.set(encoded, forKey: key)
-//                print("Article succesfully added")
-//            }
-//        }
-//    }
-//
-//
-//    func getFavouriteArticles(forKey key: String) -> [Article] {
-//            if let data = userDefaults.data(forKey: key),
-//               let articles = try? JSONDecoder().decode([Article].self, from: data) {
-//                return articles
-//            }
-//            return [] // Return an empty array if nothing found
-//    }
-//
-//
-//    func remove(_ article: Article, forKey key: String) {
-//            var articles = getFavouriteArticles(forKey: key)
-//
-//            articles.removeAll { $0.url == article.url } // Remove based on unique identifier
-//
-//            if let encoded = try? JSONEncoder().encode(articles) {
-//                userDefaults.set(encoded, forKey: key)
-//            }
-//    }
-//
-//
-//}
-

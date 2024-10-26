@@ -9,11 +9,12 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell {
     
+    var category: Category?
+    
     let titleLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.textAlignment = .center
-        title.tintColor = .black
         title.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return title
     }()
@@ -35,6 +36,11 @@ class CategoryCell: UICollectionViewCell {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.borderWidth = 1.0
         clipsToBounds = true
+    }
+    
+    func configure(with category: Category){
+        self.category = category
+        titleLabel.text = category.name.rawValue
     }
     
     func setConstraints(){

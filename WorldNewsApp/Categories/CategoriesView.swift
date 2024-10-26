@@ -10,9 +10,12 @@ import UIKit
 class CategoriesView: UIView {
     
     //MARK: - Properties
-     let categoryArray = ["Sports", "Politics", "Life", "Gaming", "Animals", "Nature", "Food", "Art", "History", "Fashion", "Covid-19", "Middle East"]
+//     let categoryArray = ["Sports", "Politics", "Life", "Gaming", "Animals", "Nature", "Food", "Art", "History", "Fashion", "Covid-19", "Middle East"]
+    
+    let categoryArray = [{Category(name: .business)}, {Category(name: .entertainment)}, {Category(name: .general)}, {Category(name: .health)}, {Category(name: .technology)}, {Category(name: .science)}, {Category(name: .sports)}]
     
     var collectionView: UICollectionView!
+    let storageManager = StorageManager()
     
     
     //MARK: - Initialization
@@ -66,12 +69,44 @@ extension CategoriesView: UICollectionViewDataSource {
         return categoryArray.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+            
+            
+            let categories = storageManager.getCategories(forKey: .categories)
+            guard let category = cell.category else { return }
+            
+            if !categories.contains(where: { $0.name == category.name }) {
+                cell.backgroundColor = .blue
+                cell.titleLabel.tintColor = .white
+                storageManager.addGategory(category, forKey: .categories)
+            } else {
+                cell.backgroundColor = .white
+                cell.titleLabel.tintColor = .black
+                storageManager.removeCategory(category, forKey: .categories)
+            }
+        }
+    }
+    
 }
 
 extension CategoriesView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCell
-        cell.titleLabel.text = categoryArray[indexPath.row]
+        cell.configure(with: categoryArray[indexPath.row]())
+        
+        
+        let categories = storageManager.getCategories(forKey: .categories)
+        let category = cell.category
+        
+        if categories.contains(where: { $0.name == category!.name }) {
+            cell.backgroundColor = .blue
+            cell.titleLabel.tintColor = .white
+        } else {
+            cell.backgroundColor = .white
+            cell.titleLabel.tintColor = .black
+        }
+        
         return cell
     }
 }
@@ -82,6 +117,8 @@ extension CategoriesView: UICollectionViewDelegateFlowLayout {
         let itemWidth = (collectionView.frame.width - padding) / 2 // Two cells per row
         return CGSize(width: itemWidth, height: 72)
     }
+    
+    
 }
 
 
