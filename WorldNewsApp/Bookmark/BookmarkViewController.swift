@@ -13,43 +13,30 @@ class BookmarkViewController: UIViewController {
     //MARK: - Properties
     let bookmarkView = BookmarkView()
     let storageManager = StorageManager()
-    
-    var articlesArray = [Article]() {
-            didSet {
-                bookmarkView.reloadCollectionView()
-            }
-        }
+    var articlesArray = [Article]()
 
     //MARK: - Life cycle
     override func loadView() {
-            view = bookmarkView
-            bookmarkView.collectionView.dataSource = self
-            bookmarkView.collectionView.delegate = self
-            bookmarkView.collectionView.register(BookmarkCell.self, forCellWithReuseIdentifier: "cell")
+        view = bookmarkView
+        bookmarkView.collectionView.dataSource = self
+        bookmarkView.collectionView.delegate = self
+        bookmarkView.collectionView.register(BookmarkCell.self, forCellWithReuseIdentifier: "cell")
     }
         
     override func viewDidLoad() {
-            super.viewDidLoad()
-            fetchArticles()
-        
-            navigationItem.backButtonTitle = ""
-        
-            let data = storageManager.getFavouriteArticles(forKey: "favouriteArticles")
-            print(data.count)
+        super.viewDidLoad()
+        navigationItem.backButtonTitle = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
     }
 
     //MARK: - Methods
-    private func fetchArticles() {
-        Service.shared.getResults(category: "business") { [weak self] result in
-            switch result {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    self?.articlesArray = results.articles
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+    private func loadData() {
+        articlesArray = storageManager.getFavouriteArticles(forKey: .favouriteArticles)
+        bookmarkView.collectionView.reloadData()
     }
 }
 

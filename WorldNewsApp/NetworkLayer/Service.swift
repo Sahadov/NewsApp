@@ -41,7 +41,11 @@ class Service {
     
     func getResults(category: String, completed: @escaping (Result<RequestAnswer, ErrorMessage>) -> Void) {
         
-        let urlString = "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&apiKey=105be9265a2b4835836cae7db850297d"
+        //let urlString = "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&apiKey=105be9265a2b4835836cae7db850297d"
+        
+        
+        let urlString = "https://newsapi.org/v2/everything?q=apple&from=2024-10-24&to=2024-10-24&sortBy=popularity&apiKey=105be9265a2b4835836cae7db850297d"
+        
         guard let url = URL(string: urlString) else {return}
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in

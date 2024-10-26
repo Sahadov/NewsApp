@@ -32,17 +32,18 @@ class ArticleView: UIView {
     }()
     
     let bookmarkButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.contentMode = .scaleAspectFill
         button.setImage(UIImage(systemName: "bookmark"), for: .normal)
         button.isUserInteractionEnabled = true
         button.tintColor = .white
+        button.layer.zPosition = 1
         return button
     }()
     
     let shareButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.contentMode = .scaleAspectFill
         button.tintColor = .white
@@ -61,7 +62,7 @@ class ArticleView: UIView {
         return title
     }()
     
-    let descriptionLabel: UILabel = {
+    let contentLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.numberOfLines = 0
@@ -90,7 +91,7 @@ class ArticleView: UIView {
     private func setupViews() {
         backgroundColor = .white
         addSubview(imageView)
-        addSubview(descriptionLabel)
+        addSubview(contentLabel)
         imageView.addSubview(titleLabel)
         imageView.addSubview(authorLabel)
         imageView.addSubview(bookmarkButton)
@@ -99,10 +100,10 @@ class ArticleView: UIView {
     
     func configure(with article: Article) {
         titleLabel.text = article.title
-        descriptionLabel.text = article.description
+        contentLabel.text = article.content
         authorLabel.text = article.author
     }
-        
+    
 
 }
 
@@ -119,13 +120,13 @@ private extension ArticleView {
             authorLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 15),
             authorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             bookmarkButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -15),
-            bookmarkButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 60),
+            //bookmarkButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 60),
+            bookmarkButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 160),
             shareButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -15),
-            shareButton.topAnchor.constraint(equalTo: bookmarkButton.bottomAnchor, constant: 10),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30)
-            
+            shareButton.topAnchor.constraint(equalTo: bookmarkButton.bottomAnchor, constant: 30),
+            contentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            contentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            contentLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),            
         ])
     }
 }

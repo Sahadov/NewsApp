@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
             super.viewDidLoad()
             fetchArticles()
+        
     }
 
     //MARK: - Methods
@@ -53,11 +54,19 @@ class HomeViewController: UIViewController {
         
         if sender.currentImage == UIImage(systemName: "heart.fill") {
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
-            storageManager.remove(article, forKey: "favouriteArticles")
+            storageManager.removeArticleFromFavourites(article, forKey: .favouriteArticles)
         } else {
             sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            storageManager.set(article, forKey: "favouriteArticles")
+            storageManager.addArticleToFavourites(article, forKey: .favouriteArticles)
         }
+    }
+    
+    func clearUserDefaults() {
+        let defaults = UserDefaults.standard
+        for key in defaults.dictionaryRepresentation().keys {
+            defaults.removeObject(forKey: key)
+        }
+        defaults.synchronize() // Optional: forces any pending changes to be written immediately
     }
     
 }
@@ -75,7 +84,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.configure(with: article)
         
         // checking if the article is already in favourites
-        let articles = storageManager.getFavouriteArticles(forKey: "favouriteArticles")
+        let articles = storageManager.getFavouriteArticles(forKey: .favouriteArticles)
         if articles.contains(where: { $0.url == article.url }) {
             cell.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
