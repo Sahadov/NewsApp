@@ -22,7 +22,7 @@ private extension TabBarController {
         let home = self.createNav(with: "Browse", image: UIImage(systemName: "house"), vc: HomeViewController())
         let categories = self.createNav(with: "Categories", image: UIImage(systemName: "square.grid.2x2"), vc: CategoriesViewController())
         let bookmarks = self.createNav(with: "Bookmarks", image: UIImage(systemName: "bookmark"), vc: BookmarkViewController())
-        let profile = self.createNav(with: "Profile", image: UIImage(systemName: "person"), vc: SelectGameViewController())
+        let profile = self.createNav(with: "Profile", image: UIImage(systemName: "person"), vc: AuthViewController())
         self.setViewControllers([home, categories, bookmarks, profile], animated: true)
     }
     
